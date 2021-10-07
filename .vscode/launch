@@ -1,0 +1,36 @@
+# 0 "/home/rolands/Dokumente/UdacityKurs/Projekte/CppND-System-Monitor/.vscode/launch.json"
+# 1 "/home/rolands/Dokumente/UdacityKurs/Projekte/CppND-System-Monitor/.vscode//"
+# 0 "<eingebaut>"
+# 0 "<Kommandozeile>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 0 "<Kommandozeile>" 2
+# 1 "/home/rolands/Dokumente/UdacityKurs/Projekte/CppND-System-Monitor/.vscode/launch.json"
+{
+
+
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cpp - Aktive Datei erstellen und debuggen",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/rolands/Dokumente/UdacityKurs/Projekte/CppND-System-Monitor/build/monitor",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Automatische Strukturierung und Einrückung für \"gdb\" aktivieren",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: cpp Aktive Datei kompilieren",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}
