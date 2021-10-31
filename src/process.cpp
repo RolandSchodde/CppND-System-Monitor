@@ -22,7 +22,14 @@ int Process::Pid() { return this->pid; }
 float Process::CpuUtilization() { return cpuUtilization; }
 
 // Return the command that generated this process
-string Process::Command() { return LinuxParser::Command(Pid()); }
+string Process::Command() {
+  std::string command = LinuxParser::Command(Pid());
+
+  if (command.length() > 50) {
+    command = command.substr(0, 50) + "...";
+  }
+  return command;
+}
 
 // Return this process's memory utilization
 string Process::Ram() {

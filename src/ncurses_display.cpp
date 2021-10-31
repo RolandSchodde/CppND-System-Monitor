@@ -1,5 +1,7 @@
 
 
+#include "ncurses_display.h"
+
 #include <curses.h>
 
 #include <chrono>
@@ -9,7 +11,6 @@
 #include <vector>
 
 #include "format.h"
-#include "ncurses_display.h"
 #include "system.h"
 
 using std::string;

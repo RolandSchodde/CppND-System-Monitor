@@ -44,7 +44,7 @@ vector<Process>& System::Processes() {
     // 2. (lastPID < currentPID) at index i -> erase process at index i
     // 3. (lastPID > currentPID) at index i -> insert new process at index i
     // stop if on of lastPIDs or pIDs reaches their end.
-    int i;
+    unsigned int i;
     for (i = 0; i < lastPIDs_.size() && i < pIDs.size();) {
       if (lastPIDs_.at(i) == pIDs.at(i)) {
         processes_.at(i).updateCpuUtilization();

@@ -13,32 +13,69 @@ string Format::ElapsedTime(long seconds) {
   string m;
   string s;
 
+  // Thanks for the simplier calc-suggestions here!
   // hours
-  if (seconds < 3600) {
+  long hours = seconds / 3600;
+
+  if (hours == 0) {
     h = "00";
-  } else if (seconds < 10 * 3600) {
-    h = "0" + std::to_string(seconds / 3600);
+  } else if (hours < 10) {
+    h = "0" + std::to_string(hours);
   } else {
-    h = std::to_string(seconds / 3600);
+    h = std::to_string(hours);
   }
 
   // minutes
-  if (seconds % 3600 < 60) {
+  seconds = seconds % 3600;
+  long minutes = seconds / 60;
+
+  if (minutes == 0) {
     m = "00";
-  } else if (seconds % 3600 < 10 * 60) {
-    m = "0" + std::to_string((seconds % 3600) / 60);
+  } else if (minutes < 10) {
+    m = "0" + std::to_string(minutes);
   } else {
-    m = std::to_string((seconds % 3600) / 60);
+    m = std::to_string(minutes);
   }
 
   // seconds
-  if ((seconds % 3600) % 60 == 0) {
+  seconds = seconds % 60;
+
+  if (seconds == 0) {
     s = "00";
-  } else if ((seconds % 3600) % 60 < 10) {
-    s = "0" + std::to_string((seconds % 3600) % 60);
+  } else if (seconds < 10) {
+    s = "0" + std::to_string(seconds);
   } else {
-    s = std::to_string((seconds % 3600) % 60);
+    s = std::to_string(seconds);
   }
+
   return h + ":" + m + ":" + s;
 }
-string calcHours(long seconds) {}
+
+// Thanks for this approach!
+/*
+string Format::ElapsedTime(long s) {
+  std::chrono::seconds seconds{s};
+
+  // return std::chrono::format("%T", seconds); // in C++20 :-)
+
+  std::chrono::hours hours =
+      std::chrono::duration_cast<std::chrono::hours>(seconds);
+
+  seconds -= std::chrono::duration_cast<std::chrono::seconds>(hours);
+
+  std::chrono::minutes minutes =
+      std::chrono::duration_cast<std::chrono::minutes>(seconds);
+
+  seconds -= std::chrono::duration_cast<std::chrono::seconds>(minutes);
+
+  std::stringstream ss{};
+
+  ss << std::setw(2) << std::setfill('0') << hours.count()     // HH
+     << std::setw(1) << ":"                                    // :
+     << std::setw(2) << std::setfill('0') << minutes.count()   // MM
+     << std::setw(1) << ":"                                    // :
+     << std::setw(2) << std::setfill('0') << seconds.count();  // SS
+
+  return ss.str();
+}
+*/

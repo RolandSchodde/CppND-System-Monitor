@@ -44,8 +44,19 @@ enum CPUStates {
 // Process
 enum ProcessStates { kUTime_ = 13, kSTime_, kCUTime_, kCSTime_ };
 
-// Process start time position
+// Process start time index
 const int kProcessStartTime_ = 21;
+
+// filters to gather specific linux system information
+const std::string filterPrettyName("PRETTY_NAME");
+const std::string filterProcesses("processes");
+const std::string filterRunningProcesses("procs_running");
+const std::string filterMemTotalString("MemTotal:");
+const std::string filterMemFreeString("MemFree:");
+const std::string filterCpu("cpu");
+const std::string filterUID("Uid:");
+const std::string filterProcMemVmRSS("VmRSS:");
+const std::string filterProcMemVmSize("VmSize:");
 
 std::vector<std::string> CpuUtilization();
 long Jiffies();
