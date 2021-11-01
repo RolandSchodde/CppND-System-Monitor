@@ -87,7 +87,6 @@ float LinuxParser::MemoryUtilization() {
       linestream >> key >> value;
       if (key == filterMemTotalString) {
         memTotal = std::stoi(value);
-        filestream.close();
       }
       if (key == filterMemFreeString) {
         memFree = std::stoi(value);
